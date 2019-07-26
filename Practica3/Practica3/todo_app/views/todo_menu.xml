@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<odoo>
+	<!-- Actions para task y  -->
+	<act_window id="action_todo_task"
+    	name="To-do Task"
+    	res_model="todo.task"
+    	view_mode="tree,form"
+	/>
+	<act_window id="action_todo_owner"
+		name="To-do Owner"
+		res_model="todo.owner"
+		view_mode="tree,form"
+	/>
+
+	<!-- Menu de arriba-->
+	<menuitem id="menu_todo_task"
+		name="Todos"
+	/>
+	
+	<!-- Menu padre de la izquierda-->
+	<menuitem id="todo_submenu"
+		name="Todo submenus"
+		parent="menu_todo_task"
+	/>
+	
+	<!-- Primer submenu de Task-->
+	<menuitem id="submenu_task"
+		name="Todo Task"
+		parent="todo_submenu"
+		action="action_todo_task"
+	/>
+
+	<!-- Segundo submenu de Owner-->
+	<menuitem id="submenu_owner"
+		name="Todo Owner"
+		parent="todo_submenu"
+		action="action_todo_owner"
+	/>
+</odoo>

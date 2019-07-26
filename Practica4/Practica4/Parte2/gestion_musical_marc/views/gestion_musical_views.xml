@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vista Form de Discos con Herencia-->
+    <record id="author_nacimiento_view_form" model="ir.ui.view">
+        <field name="name">author.view.nacimiento.form</field>
+        <field name="model">author</field>
+        <field name="inherit_id" ref="gestion_musical.author_view_form"/>
+
+        <field name="arch" type="xml">
+            <field name="birthday" position="after">
+                <field name="lugar_nacimiento"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Vista Tree de Author con Herencia-->
+    <record id="author_nacimiento_view_tree" model="ir.ui.view">
+        <field name="name">author.nacimiento.view.tree</field>
+        <field name="model">author</field>
+        <field name="inherit_id" ref="gestion_musical.author_view_tree"/>
+
+        <field name="arch" type="xml">
+            <field name="birthday" position="after">
+                <field name="lugar_nacimiento"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Vista Form de Discos con Herencia-->
+    <record id="discos_genere_view_form" model="ir.ui.view">
+        <field name="name">discos.genere.view.form</field>
+        <field name="model">disc</field>
+        <field name="inherit_id" ref="gestion_musical.discos_view_form"/>
+
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="genere" widget="selection"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Vista Tree de Discos con Herencia-->
+    <record id="discos_genere_view_tree" model="ir.ui.view">
+        <field name="name">discos.genere.view.tree</field>
+        <field name="model">disc</field>
+        <field name="inherit_id" ref="gestion_musical.discos_view_tree"/>
+
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="genere" widget="selection"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Vista Form de Gira-->
+    <record id="gira_view_form" model="ir.ui.view">
+        <field name="name">gira.view.form</field>
+        <field name="model">gira</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="any"/>
+                    <field name="ciudades"/>
+                    <field name="author_id"/>
+                    <field name="disc_id"/>
+                    <field name="top_song_ids"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Tree de Gira-->
+    <record id="gira_view_tree" model="ir.ui.view">
+        <field name="name">gira.view.tree</field>
+        <field name="model">gira</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="any"/>
+                <field name="ciudades"/>
+                <field name="author_id"/>
+                <field name="disc_id"/>
+                <field name="top_song_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action para el nuevo menu de Gira-->
+    <record id="gira_action_view" model="ir.actions.act_window">
+        <field name="name">gira.action.view</field>
+        <field name="res_model">gira</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="gira_view_tree"/>
+    </record>
+
+    <!-- Submenu Gira-->
+    <menuitem
+            id="gira_submenu"
+            name="Giras"
+            parent="gestion_musical.discos_menu_root"/> <!-- Hago que cuelgue del menu_root del modulo original-->
+
+    <!-- SubSubmenu Gira-->
+    <menuitem id="gira_menu_action"
+              name="Lista Giras"
+              parent="gira_submenu"
+              action="gira_action_view"
+              sequence="0"/>
+</odoo>

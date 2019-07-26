@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- To-Do Task Form view -->
+    <record id="todo_task_form_view" model="ir.ui.view">
+      <field name="name">To-do Task Form</field>
+      <field name="model">todo.task</field>
+
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group name="group_top">
+              <group name="group_left">
+                <field name="name"/>
+              </group>
+                <group name="group_right">
+                  <field name="is_done"/>
+                  <field name="active" readonly="1"/>
+                </group>
+            </group>
+            <group name="group_bottom">
+                <field name="owner_ids"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- To-Do Task Tree view -->
+    <record id="todo_task_tree_view" model="ir.ui.view">
+      <field name="name">To-do Task Tree</field>
+      <field name="model">todo.task</field>
+
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="is_done"/>
+          <field name="owner_ids"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- To-Do Owner Form view -->
+    <record id="todo_owner_form_view" model="ir.ui.view">
+      <field name="name">To-do Owner Form</field>
+      <field name="model">todo.owner</field>
+
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+              <group>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="apellidos"/>
+                <field name="task_ids"/>
+              </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- To-Do Owner Tree view -->
+    <record id="todo_owner_tree_view" model="ir.ui.view">
+      <field name="name">To-do Owner Tree</field>
+      <field name="model">todo.owner</field>
+
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="age"/>
+          <field name="apellidos"/>
+          <field name="task_ids"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- To-Do Task Search view -->
+    <record id="todo_task_view_filter" model="ir.ui.view">
+      <field name="name">To-do Task Filter</field>
+      <field name="model">todo.task</field>
+
+      <field name="arch" type="xml">
+        <search>
+          <field name="owner_ids"/>
+          <filter string="Not Done" name="filter_not_done" domain="[('is_done','=',False)]"/>
+          <filter string="Done" domain="[('is_done','!=',False)]"/>
+        </search>
+      </field>
+    </record>
+</odoo>

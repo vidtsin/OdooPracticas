@@ -1,0 +1,25 @@
+<odoo>
+  <data>
+    <record id="todo_date_form_view" model="ir.ui.view">
+      <field name="name">To-do Date Form</field>
+      <field name="model">todo.task</field>
+      <field name="inherit_id" ref="todo_app.todo_task_form_view" />
+      <field name="arch" type="xml">
+        <field name="owner_ids" position="after">
+	    <field name="task_date"/>
+        </field>
+      </field>
+    </record>
+
+  <record id="todo_date_tree_view" model="ir.ui.view">
+    <field name="name">To-do Date Tree</field>
+    <field name="model">todo.task</field>
+    <field name="inherit_id" ref="todo_app.todo_task_tree_view" />
+    <field name="arch" type="xml">
+       <field name="owner_ids" position="after">
+          <field name="task_date"/>
+       </field>
+    </field>
+  </record>
+  </data>
+</odoo>

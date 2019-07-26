@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="author_nacimiento_view_form" model="ir.ui.view">
+        <field name="name">author.view.nacimiento.form</field>
+        <field name="model">author</field>
+        <field name="inherit_id" ref="gestion_musical.author_view_form"/>
+
+        <field name="arch" type="xml">
+            <field name="birthday" position="after">
+                <field name="lugar_nacimiento"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="author_nacimiento_view_tree" model="ir.ui.view">
+        <field name="name">author.nacimiento.view.tree</field>
+        <field name="model">author</field>
+        <field name="inherit_id" ref="gestion_musical.author_view_tree"/>
+
+        <field name="arch" type="xml">
+            <field name="birthday" position="after">
+                <field name="lugar_nacimiento"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="discos_genere_view_form" model="ir.ui.view">
+        <field name="name">discos.genere.view.form</field>
+        <field name="model">disc</field>
+        <field name="inherit_id" ref="gestion_musical.discos_view_form"/>
+
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="genere" widget="selection"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="discos_genere_view_tree" model="ir.ui.view">
+        <field name="name">discos.genere.view.tree</field>
+        <field name="model">disc</field>
+        <field name="inherit_id" ref="gestion_musical.discos_view_tree"/>
+
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="genere" widget="selection"/>
+            </field>
+        </field>
+    </record>
+</odoo>
