@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<odoo>
+  <act_window id="action_todo_task"
+    name="To-do Task"
+    res_model="todo.task"
+    view_mode="tree,form" />
+
+  <menuitem id="menu_todo_task"
+    name="Todos"
+    action="action_todo_task" />
+ 
+  <menuitem
+    id="todo_submenu"
+    name="Submenus  To-Do"
+    parent="menu_todo_task"/>
+
+  <menuitem
+    id="sub_sub_menu"
+    name="Tareas a realizar"
+    parent="todo_submenu"
+    action="action_todo_task"/>
+
+  <act_window id="action_todo_user"
+    name="To-do User"
+    res_model="todo.user"
+    view_mode="tree,form" />
+  <menuitem id="menu_todo_user"
+    name="Users"
+    action="action_todo_user"
+    parent="menu_todo_task"/>
+
+ 
+<!-- RECORDS -->
+  <record id="todo_task_view_tree" model="ir.ui.view">
+    <field name="name">tasks.view.tree</field>
+ <?xml version="1.0"?>
+<odoo>
+<data>
+  <act_window id="action_todo_task"
+    name="To-do Task"
+    res_model="todo.task"
+    view_mode="tree,form" />
+
+  <menuitem id="menu_todo_task"
+    name="Todos"
+    action="action_todo_task" />
+ 
+  <menuitem
+    id="todo_submenu"
+    name="Submenus  To-Do"
+    parent="menu_todo_task"/>
+
+  <menuitem
+    id="sub_sub_menu"
+    name="Tareas a realizar"
+    parent="todo_submenu"
+    action="action_todo_task"/>
+
+  <act_window id="action_todo_user"
+    name="To-do User"
+    res_model="todo.user"
+    view_mode="tree,form" />
+  <menuitem id="menu_todo_user"
+    name="Users"
+    action="action_todo_user"
+    parent="menu_todo_task"/>
+
+
+  <!-- RECORDS -->
+  <record id="task_view_form" model="ir.ui.view">
+    <field name="name">todo.task.form</field>
+    <field name="res_model">todo.task</field>
+    <field name="arch" type="xml">
+        <form string="Task">
+	  <group name="group_top">
+	    <group name="group_left">
+	      <field name="name"/>
+	    </group>
+	    <group name="group_right">
+              <field name="is_done"/>
+              <field name="active"/>
+	    </group>
+	  </group>
+	  <group name="group_bottom">
+	    <field name="user_ids"/>
+	  </group>
+        </form>
+    </field>
+  </record>
+
+  <record id="task_view_tree" model="ir.ui.view">
+    <field name="name">todo.task.tree</field>
+    <field name="res_model">todo.task</field>
+    <field name="arch" type="xml">
+      <field name="name"/>
+      <field name="is_done"/>
+      <field name="user_ids"/>
+    </field>
+  </record>
+</data>
+</odoo>
+   
+  </record>
+
+</odoo>
